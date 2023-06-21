@@ -1,0 +1,41 @@
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://emiya323:Abc123456@cluster0.mmjzdpp.mongodb.net/cluster0"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  usertype  String
+  firstname String
+  lastname  String
+  age       String
+  gender    String
+  section   String
+  email     String @unique
+  password  String
+  shiftKey  Int
+}
+
+model UserDetails {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String  @unique
+  firstName   String
+  usertype    String
+  lastName    String
+  middleName  String
+  homeAddress String
+  city        String
+  region      String
+  country     String
+  zipCode     String
+  birthdate   String?
+  gender      String
+  hobby       String
+  civilStatus String
+  shiftKeyA   Int
+  shiftKeyB   Int
+}

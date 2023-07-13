@@ -50,6 +50,8 @@ router.get('/user-details/delete/:userId', loggedin, accessControl.canDelete, us
 
 //visualization
 router.get('/visualize', loggedin, userDetailsController.getVisualizePage);
+router.get('/highcharts', loggedin, userDetailsController.getHighChartPage);
+
 
 // Login
 router.post('/api/login', login); // add your login route

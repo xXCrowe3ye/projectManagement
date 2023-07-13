@@ -272,21 +272,12 @@ a.dropdown-item:hover {
 				<thead>
 					<tr>
 						
-						<th>User ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Middle Name</th>
-                        <th>Home Address</th>
-                        <th>City</th>
-                        <th>Region</th>
-                        <th>Country</th>
-                        <th>Zip Code</th>
-                        <th>Birthdate</th>
-                        <th>Gender</th>
-                        <th>Hobby</th>
-                        <th>Civil Status</th>
-                        <th>Shift Key A</th>
-                        <th>Shift Key B</th>
+						<th>Project ID</th>
+                        <th>Project Name</th>
+                        <th>Gross revenue</th>
+                        <th>KPI</th>
+                        <th>Profit</th>
+
                         <th>Action</th>
 					</tr>
 				</thead>
@@ -297,19 +288,9 @@ a.dropdown-item:hover {
 						
 						<td><%= userDetail.userId %></td>
                         <td><%= userDetail.firstName %></td>
-                        <td><%= userDetail.lastName %></td>
-                        <td><%= userDetail.middleName %></td>
-                        <td><%= userDetail.homeAddress %></td>
-                        <td><%= userDetail.city %></td>
-                        <td><%= userDetail.region %></td>
-                        <td><%= userDetail.country %></td>
                         <td><%= userDetail.zipCode %></td>
                         <td><%= userDetail.birthdate %></td>
-                        <td><%= userDetail.gender %></td>
                         <td><%= userDetail.hobby %></td>
-                        <td><%= userDetail.civilStatus %></td>
-                        <td><%= userDetail.shiftKeyA %></td>
-                        <td><%= userDetail.shiftKeyB %></td>
 						<td>
                             <button onclick="location.href='/user-details/edit/<%= userDetail.userId %>'" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
                             <button onclick="location.href='/user-details/delete/<%= userDetail.userId %>'" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>

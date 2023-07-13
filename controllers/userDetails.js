@@ -178,6 +178,35 @@ exports.getVisualizePage = async (req, res) => {
     });
 };
 
+exports.getHighChartPage = async (req, res) => {
+    const userDetails = await prisma.userDetails.findMany();
+    
+    // Transform the data for the charts
+    const cityCounts = {};
+    const regionCounts = {};
+    const countryCounts = {};
+    const genderCounts = {};
+    const civilStatusCounts = {};
+
+    userDetails.forEach(details => {
+        cityCounts[details.city] = (cityCounts[details.city] || 0) + 1;
+        regionCounts[details.region] = (regionCounts[details.region] || 0) + 1;
+        countryCounts[details.country] = (countryCounts[details.country] || 0) + 1;
+        genderCounts[details.gender] = (genderCounts[details.gender] || 0) + 1;
+        civilStatusCounts[details.civilStatus] = (civilStatusCounts[details.civilStatus] || 0) + 1;
+    });
+
+    res.render('highchart', {
+        cityCounts,
+        regionCounts,
+        countryCounts,
+        genderCounts,
+        civilStatusCounts,
+    });
+};
+
+
+
 exports.getUserDetails = async (req, res) => {
     const id = req.params.userId;
     const userDetails = await prisma.userDetails.findUnique({ where: { id: id } });
